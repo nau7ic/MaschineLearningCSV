@@ -53,7 +53,8 @@ results = []
 # Prediction with every model in the dict
 for model_name, model in models.items():
     for row in predict_dataset:
-        results.append(model.predict([row]))
+        data = np.array([row])
+        results.append(model.predict(data))
 
 csv_helper.save_predictions(results)
 
