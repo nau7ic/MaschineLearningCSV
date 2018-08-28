@@ -5,6 +5,7 @@ from itertools import islice
 import pandas as pd
 
 
+
 def getFieldnames(csvFile):
     """
     Read the first row and store values in a tuple
@@ -26,7 +27,11 @@ def writeCursor(csvFile, fieldnames):
         for row in csvfile:
             values = list(row.strip("\n").split(";"))
             for i, value in enumerate(values):
+<<<<<<< HEAD
                 if i in [1, 7, 8, 9, 10]:
+=======
+                if i in [1, 7, 8, 9]:
+>>>>>>> 48c000c... Update - Dict for created Models
                     nValue = literal_eval(value)
                 else:
                     nValue = literal_eval('"'+value+'"')
@@ -43,6 +48,7 @@ def get_Models():
     fieldnames = getFieldnames(csv_file)
     cursor = writeCursor(csv_file, fieldnames)
     return cursor
+<<<<<<< HEAD
 
 
 def get_training_data(training_file):
@@ -61,3 +67,5 @@ def save_predictions(results):
     with open("MachineLearningCSV/_PredictOutput/results.csv", "w") as f:
         writer = csv.writer(f)
         writer.writerows(results)
+=======
+>>>>>>> 48c000c... Update - Dict for created Models

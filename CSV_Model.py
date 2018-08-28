@@ -9,6 +9,7 @@ from sklearn.model_selection import train_test_split
 
 import csv_helper
 from generate_Models import create_model
+<<<<<<< HEAD
 
 # Configuration
 training_data_path = 'MachineLearningCSV/_TrainingData/'
@@ -59,3 +60,18 @@ for model_name, model in models.items():
 csv_helper.save_predictions(results)
 
 print("Fertig!")
+=======
+
+models_data = csv_helper.get_Models()
+
+models = {}
+
+for i in models_data:
+    key = i["Name"]
+    models[key] = create_model(i["Layer_Nodes"], i["Hidden_Activation"],
+                               i["Output_Activation"], i["Loss"], i["Optimizer"], i["Metrics"])
+
+print(models)
+
+# model.fit(np.array(trainX),np.array(trainY),epochs=20,callbacks=[plot_losses], verbose)
+>>>>>>> 48c000c... Update - Dict for created Models
